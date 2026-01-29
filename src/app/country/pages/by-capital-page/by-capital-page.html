@@ -1,13 +1,23 @@
 
 <section>
   <!-- country-search-input -->
-   <country-search-input placeholder="Search capital"  (search)="onSearch($event)"/>
+   <country-search-input
+   placeholder="Search capital"
+   (search)="Search($event)"
+   (search)="onSearch($event)"
+   />
 
 </section>
 
 <section>
   <!-- country-list -->
-  <country-list />
+  @if(isError()) {
+    <h3>Mensaje de erroraasdasd</h3>
+  } @else {
+    <country-list [countries]="countries()" />
+
+  }
+
 
 </section>
 
