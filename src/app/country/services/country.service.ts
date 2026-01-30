@@ -1,8 +1,8 @@
+import { CountryMapper } from './../mappers/country.mappers';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { RESTCountry } from '../interfaces/rest-countries.interface';
-import { map, Observable, tap } from 'rxjs';
-import { CountryMapper } from '../mappers/country.mappers';
+import { catchError, delay, map, Observable, of, tap, throwError } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
 const API_URL = 'https://restcountries.com/v3.1';
@@ -21,9 +21,26 @@ export class CountryService {
     return this.http.get<RESTCountry[]>(`${API_URL}/capital/${query}`)
     .pipe(
       map((restCountries) => CountryMapper.mapRestCountryArrayToCountryArray(restCountries)),
-      tap((resp) => console.log(resp))
+      delay(3000),
+      tap((resp) => console.log(resp)),
+      catchError(err => {
+        console.log('Error fetching', err)
+      //   return throwError(
+      //     () => new Error(`No se puede obtener país con el query ${query}`));
+      // })
+        return of([]);
+      })
     )
-
   }
 
+  searchByCountry( query: string) {
+    return this.http.get<RESTCountry[]>(`${API_URL}/name/${query}`)
+    .pipe(
+      map((restCountries) => CountryMapper.mapRestCountryArrayToCountryArray(restCountries)),
+      catchError(err => {
+        console.log(err)
+        return of([]);
+      })
+    )
+  }
 }

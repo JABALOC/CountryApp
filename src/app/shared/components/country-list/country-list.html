@@ -24,9 +24,26 @@
           <td>{{ country.capital }}</td>
           <td>{{ country.population | number}}</td>
           <td>
-            <a class="link-primary" href="#">Description</a></td>
+            <a
+            class="link-primary"
+            [routerLink]="['/country/by',country.cca2]">Description
+            </a>
+          </td>
         </tr>
       }
+
+      <tr>
+        @if(isLoading()) {
+          <td colspan="8" class="text-center">Loading...</td>
+        }
+        @if (!isError === null) {
+          <td colspan="8" class="text-center">Error</td>
+        }
+        @if (isEmpty()) {
+          <td colspan="8" class="text-center">No countries found</td>
+
+        }
+      </tr>
     </tbody>
   </table>
 

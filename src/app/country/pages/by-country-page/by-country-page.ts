@@ -1,6 +1,8 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { SearchInput } from '../../../shared/components/search-input/search-input';
 import { CountryList } from '../../../shared/components/country-list/country-list';
+import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-by-country-page',
@@ -9,10 +11,29 @@ import { CountryList } from '../../../shared/components/country-list/country-lis
 })
 export class ByCountryPage {
 
-  input: string = '';
+  countryService = inject(CountryService)
 
-  onSearch (search: string) {
-    this.input = search;
-    console.log(this.input,'recibido');
+
+  isLoading = signal(false);
+  countries = signal<Country[]>([])
+  notFound = signal<string|null>(null)
+
+  onCountrySearch (query: string) {
+    if (this.isLoading()) return;
+
+    this.isLoading.set(true);
+    this.notFound.set(null);
+
+    this.countryService.searchByCountry(query)
+    .subscribe((resp) => {
+        this.isLoading.set(false);
+        this.countries.set(resp);
+      if (this.countries().length === 0) {
+        this.notFound.set('Country not found');
+
+      }
+
+    })
+
   }
  }

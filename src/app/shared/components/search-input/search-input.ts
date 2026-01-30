@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'country-search-input',
@@ -8,11 +8,11 @@ import { Component, input, output } from '@angular/core';
 })
 export class SearchInput {
 
-  search = output<string>()
+  query = output<string>()
   placeholder = input('search')
 
-changeSearch(search: string) {
-  this.search.emit(search)
-  console.log(search, 'enviado')
+changeSearch(query: string) {
+  this.query.emit(query)
+  console.log(query, 'enviado')
 }
 }

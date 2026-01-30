@@ -1,11 +1,19 @@
 <section>
   <!-- country-search-input -->
-   <country-search-input placeholder="Search country"  (search)="onSearch($event)"/>
+   <country-search-input placeholder="Search country"  (query)="onCountrySearch($event)"/>
 
 </section>
 
 <section>
   <!-- country-list -->
-  <country-list />
+
+    @if (notFound()) {
+      <h3 class="m-4">{{ notFound() }}</h3>
+    } @else {
+      <country-list [countries]="countries()" />
+
+    }
+
+
 
 </section>

@@ -3,18 +3,22 @@
   <!-- country-search-input -->
    <country-search-input
    placeholder="Search capital"
-   (search)="Search($event)"
-   (search)="onSearch($event)"
+   (query)="onSearch($event)"
    />
 
 </section>
 
 <section>
   <!-- country-list -->
+
   @if(isError()) {
-    <h3>Mensaje de erroraasdasd</h3>
+    <h3 class="m-4">{{isError()}}</h3>
   } @else {
-    <country-list [countries]="countries()" />
+    <country-list [countries]="countries()"
+    [isLoading]="isLoading()"
+    [isError]="isError()"
+    [isEmpty]="isEmpty()"
+    />
 
   }
 
