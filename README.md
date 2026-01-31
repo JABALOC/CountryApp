@@ -1,59 +1,51 @@
-# 04CountryApp
+# CountryApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
+Aplicación frontend desarrollada con **Angular** que permite buscar países y sus capitales, mostrando información relevante obtenida de una API pública.
 
-## Development server
+## 🔍 Descripción
 
-To start a local development server, run:
+CountryApp es un proyecto orientado a **prácticas de consumo de APIs REST**, manejo de datos en Angular y desarrollo de interfaces web dinámicas. Permite:
 
-```bash
+- Buscar países por nombre.
+- Consultar la capital de cada país.
+- Visualizar información básica como población, región y bandera.
+
+El proyecto demuestra habilidades en **TypeScript**, **Angular** y **consumo de APIs externas**.
+
+## 🛠 Tecnologías
+
+- Angular  
+- TypeScript  
+- HTML & CSS  
+- API REST pública de países
+
+## 🚀 Cómo usarlo
+
+1. Clonar el repositorio:
+
+`` `bash
+git clone https://github.com/JABALOC/CountryApp.git
+
+## 2. Instalar dependencias
+
+cd CountryApp  
+npm install
+
+## 3. Ejecutar la aplicación
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 4. Abrir en el navegador
 
-## Code scaffolding
+[http://localhost:4200](http://localhost:4200)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📚 Mejoras futuras
 
-```bash
-ng generate component component-name
-```
+- Filtros avanzados por continente o población.
+- Paginación y ordenación de resultados.
+- Mejoras en la UI y UX.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📫 Contacto
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- GitHub: JABALOC  
+- Email: jabalo1988@gmail.com
