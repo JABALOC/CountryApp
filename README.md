@@ -49,3 +49,4 @@ ng serve
 
 - GitHub: JABALOC  
 - Email: jabalo1988@gmail.com
+- Linkedin: www.linkedin.com/in/jorge-abalo
